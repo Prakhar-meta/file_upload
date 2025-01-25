@@ -1,0 +1,22 @@
+<h2>Your Files <button> <a href="/file_uploads/new" >Create a New Upload</a></button></span></h2> 
+<% @file_uploads.each_with_index do |file, index| %>
+  <div>
+     <h3><%=index+1%>. &nbsp;&nbsp;<%= file.title %></h3>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<%= file.description %></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>File Type:</strong> <%= file.file.content_type %></p>
+    <% if file.file.content_type.start_with?('image') %>
+      <div>
+        <img src="<%= file.file.url %>" alt="<%= file.title %>" style="max-width: 200px; max-height: 200px;" />
+      </div>
+    <% end %>
+
+    <% unless file.file.content_type.start_with?('image') %>
+      <div>
+        <%= link_to 'Download', file.file.url, target: '_blank' %>
+      </div>
+    <% end %>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Delete', file_upload_path(file), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Share', shared_file_path(file.tiny_url) %></p>
+  </div>
+<% end %>
+

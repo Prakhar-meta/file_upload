@@ -1,0 +1,22 @@
+<button style="margin-bottom: 15px"> <a href="/file_uploads" >See All Uploads</a></button></span><br>
+<%= form_for @file_upload, html: { multipart: true } do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+  
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  
+    <div>
+      <%= f.label :file %>
+      <%= f.file_field :file %>
+    </div>
+  
+    <div>
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+  
