@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Rails version - Rails 5.1.7
+Ruby version - 2.5.1
+Used Paper clip for image uploading
+
